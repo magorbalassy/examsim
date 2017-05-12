@@ -1,0 +1,102 @@
+<div>
+  <md-toolbar color="primary">
+    <span><md-icon>mood</md-icon></span>
+    <span>Yay, XSim!</span>
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <div *ngIf="questions.length < 1">
+  <md-progress-bar>
+          class="example-margin"
+          [color]="accent"
+          [mode]="indeterminate">
+  </md-progress-bar>
+  </div>
+
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item *ngFor="let option of files">{{option.description}}</button>
+  </md-menu>
+</div>
+
+<div *ngIf="questions.length > 1">
+  <md-card>
+    <md-toolbar>
+      <span>{{ exam_file_title }}</span>
+    </md-toolbar>
+    <br>
+    <md-card>
+      <md-toolbar>
+        <span> Question nr. {{ current_question+1 }} out of {{ questions_qty }}</span>
+        <span>
+          <span mdTooltip="First question" mdTooltipPosition ="above">
+          <button md-icon-button color="primary" (click)="first()">
+            <md-icon>first_page</md-icon>
+          </button></span>
+        <span mdTooltip="Previous question" mdTooltipPosition="above">
+          <button md-icon-button color="primary" (click)="previous()">
+            <md-icon>chevron_left</md-icon>
+          </button></span>
+        <span mdTooltip="Next question" mdTooltipPosition="above">
+          <button md-icon-button color="primary" (click)="next()">
+            <md-icon>chevron_right</md-icon>
+          </button></span>
+        <span mdTooltip="Last question" mdTooltipPosition="above">
+          <button md-icon-button color="primary" (click)="last()">
+            <md-icon>last_page</md-icon>
+          </button></span>
+        </span>
+      </md-toolbar>
+
+      <div align="left">
+      <md-card-content class="white-space-wrap">
+        <br> {{ questions[current_question].q_text }} <br><br>
+          <section *ngIf="questions[current_question].q_type == 'fill-in-the-blank'">
+            <md-input-container>
+              <input mdInput placeholder="Type answer">
+            </md-input-container>
+          </section>
+          <section *ngIf="questions[current_question].q_type == 'single-choice'">
+            <md-radio-group class="radio-group" [(ngModel)]="given_answers[current_question]">
+              <md-radio-button class="radio-button" *ngFor="let answer of answers"
+               value="{{ answer }}">
+                {{answer}}
+              </md-radio-button>
+              given answer: {{ given_answers[current_question] }}
+            </md-radio-group>
+          </section>
+          <section *ngIf="questions[current_question].q_type == 'multiple-choice'">
+              <md-checkbox class="checkbox" *ngFor="let answer of answers"
+              (click)="checkbox(answer)" name=answer>
+                {{answer}}
+              </md-checkbox><br>
+              <p>given answer: {{ given_answers[current_question] }}</p>
+          </section>
+        <footer>
+        <br> {{ questions[current_question].q_type }}
+        <br> {{ questions[current_question].correct_ans.length }}
+        </footer>
+      </md-card-content>
+      </div>
+    </md-card>
+    <br>
+    <div>
+
+
+      <button md-raised-button color="accent"> End <md-icon>eject</md-icon></button>
+    </div>
+  </md-card>
+</div>
+
+
+<div>
+  <md-card>
+    <md-toolbar>
+      <span>Exam file description</span>
+    </md-toolbar>
+    <div class="angular-with-newlines" align="left">
+      {{ this.exam_file_description }}
+    </div>
+  </md-card>
+</div>
