@@ -4,5 +4,14 @@ export class Question {
   explanation : String;
   q_text : String;
   q_type : String;
-  answers : String[] ; 
+  answers : string[] ; 
+};
+
+export class GivenAnswers {
+  answers : String[]=[];
+  checked : Object={};
+
+  constructor(question : Question) {
+  }
+
 }

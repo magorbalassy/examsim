@@ -21,7 +21,7 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/hammerjs/hammer.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -52,6 +52,10 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {},
+    "serve": {
+      "port": 4200,
+      "host": "192.168.1.25"
+    }
   }
 }

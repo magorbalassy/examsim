@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css')*/
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+md-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+md-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.angular-with-newlines {
+    white-space: pre-wrap;
+}
+
+/*from angular material */
+
+.radio-button {
+  margin: 5px;
+  text-align: left;
+}
+
+
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  display: block;
+  flex-direction: column;
+}
+
+.white-space-pre {
+    white-space: pre-wrap;
+}
+
+.divider{
+    position:absolute;
+    left:50%;
+    top:10%;
+    bottom:10%;
+    border-left:1px solid white;
+}
