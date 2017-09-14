@@ -1,14 +1,14 @@
-import { SimexFrontendPage } from './app.po';
+import { XsimPage } from './app.po';
 
-describe('simex-frontend App', () => {
-  let page: SimexFrontendPage;
+describe('xsim App', () => {
+  let page: XsimPage;
 
   beforeEach(() => {
-    page = new SimexFrontendPage();
+    page = new XsimPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });

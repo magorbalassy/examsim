@@ -8,4 +8,8 @@ import { PlayerComponent } from './player.component'
 })
 export class AppComponent {
   title = 'SimX';
+
+  openDialog() {
+    console.log('opendialog')
+  }
 }

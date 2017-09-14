@@ -1,18 +1,10 @@
+<div *ngIf="questions.length < 1">
+  <md-progress-bar mode="indeterminate">
+  </md-progress-bar>
+
+</div>
+
 <div>
-  <md-toolbar color="primary">
-    <span><md-icon>mood</md-icon></span>
-    <span>Yay, XSim!</span>
-
-    <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <div *ngIf="questions.length < 1">
-    <md-progress-bar>
-      class="example-margin" [color]="accent" [mode]="indeterminate">
-    </md-progress-bar>
-  </div>
-
   <md-menu x-position="before" #menu="mdMenu">
     <button md-menu-item *ngFor="let option of files">{{option.description}}</button>
   </md-menu>
@@ -49,7 +41,7 @@
       </md-toolbar>
 
       <div align="left">
-        <md-card-content class="white-space-wrap">
+        <md-card-content>
           <br> {{ questions[current_question].q_text }} <br><br>
           <section *ngIf="questions[current_question].q_type === 'fill-in-the-blank'">
             <md-input-container>
@@ -58,31 +50,24 @@
           </section>
           <section *ngIf="questions[current_question].q_type === 'single-choice'">
             <md-radio-group class="radio-group" [(ngModel)]="gAnswers[current_question][answer]">
-              <md-radio-button class="radio-button" *ngFor="let answer of questions[current_question].answers" 
-                value="{{ answer }}">
+              <md-radio-button class="radio-button" *ngFor="let answer of questions[current_question].answers" value="{{ answer }}">
                 {{answer}}
               </md-radio-button>
               <!--given answer: {{ givenAnswers[current_question] }}-->
             </md-radio-group>
           </section>
           <section *ngIf="this.questions[current_question].q_type === 'multiple-choice'">
-            <md-checkbox class="checkbox" *ngFor="let answer of questions[current_question].answers" 
-              name=answer
-              [(ngModel)]="gAnswers[current_question][answer]">
+            <md-checkbox class="checkbox" *ngFor="let answer of questions[current_question].answers" name=answer [(ngModel)]="gAnswers[current_question][answer]">
               {{answer}}
-              </md-checkbox><br>
+            </md-checkbox><br>
           </section>
           <footer>
             <div>
               Answer :
-            <label for="switch">{{ label }} </label>
-            <md-slide-toggle
-              id="switch"
-              [color]="accent"
-              [checked]="switchvalue"
-              (change)=showLabel()>
-            Show answer
-            </md-slide-toggle>
+              <label for="switch">{{ label }} </label>
+              <md-slide-toggle id="switch" [color]="accent" [checked]="switchvalue" (change)=showLabel()>
+                Show answer
+              </md-slide-toggle>
             </div>
             <!--<br> {{ questions[current_question].q_type }}
             <br> {{ questions[current_question].correct_ans.length }}-->
@@ -94,15 +79,11 @@
     <div>
 
 
-      <button 
-        md-raised-button color="accent"
-        (click)="end()" #endButton>
+      <button md-raised-button color="accent" (click)="end()" #endButton>
         End <md-icon>eject</md-icon>
       </button>
-      
-      <button 
-        md-raised-button color="accent"
-        (click)="reset()" #endButton>
+
+      <button md-raised-button color="accent" (click)="reset()" #endButton>
         Reset <md-icon>refresh</md-icon>
       </button>
 
@@ -111,7 +92,13 @@
 </div>
 
 <div *ngIf="over == 1">
-  <progressbar [score]="score"></progressbar>
+  <md-card>
+    <md-card-content>
+      <h2 class="example-h2">Result</h2>
+      <progressbar [score]="score"></progressbar>
+      <h2 class="example-h2">{{ score }} (%{{ score*100/questions.length }})</h2>
+    </md-card-content>
+  </md-card>
 </div>
 
 <div>

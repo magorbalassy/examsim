@@ -1,3 +1,38 @@
-<div>
-<player></player>
-</div>
+<md-toolbar color="primary">
+  <span>
+      <button md-button (click)="sidenav.toggle()">
+        <md-icon>more_vert</md-icon>
+        <span>Menu</span>
+  </button>
+  </span>
+  <span>Yay, XSim !</span>
+  <span><md-icon>mood</md-icon></span>
+</md-toolbar>
+
+<md-sidenav-container #sideMenu>
+  <md-sidenav #sidenav mode="side">
+    <md-nav-list>
+      <a md-list-item>
+        <md-icon>visibility</md-icon>
+        <div class="spacer"></div>
+        <span (click)="openDialog()">Select exam</span>
+      </a>
+      <a md-list-item>
+        <md-icon>file_upload</md-icon>
+        <div class="spacer"></div>
+        <span mdTooltipPosition="after" mdTooltip="Upload a PDF file of your own,
+        containing questions and answers in an accepted
+        format">Upload file</span>
+      </a>
+      <a md-list-item>
+        <md-icon>account_box</md-icon>
+        <div class="spacer"></div>
+        <span mdTooltipPosition="after" mdTooltip="Log in with your username to
+        track your progress">Log in</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <div class="my-content">
+    <player></player>
+  </div>
+</md-sidenav-container>
