@@ -1,0 +1,35 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <md-form-field floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter titles">
+    </md-form-field>
+  </div>
+  <md-table #table [dataSource]="dataSource">
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container mdColumnDef="examCode">
+      <md-header-cell *mdHeaderCellDef> Exam code </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{ row.examCode }} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="Questions">
+      <md-header-cell *mdHeaderCellDef> Questions </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{row.examQuestions}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="File">
+      <md-header-cell *mdHeaderCellDef> File </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{row.examFile}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="Description">
+      <md-header-cell *mdHeaderCellDef> Description </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{row.examFileDesc}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedExamFile == row.examFile}" (click)="highlight(row)">
+    </md-row>
+  </md-table>
+</div>

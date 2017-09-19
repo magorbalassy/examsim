@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Rx';
 import { Http, Response } from '@angular/http';
-import { Question } from './models'
+import { ExamFiles, Question } from './models'
 
 @Injectable()
 export class QuestionsService {
@@ -22,7 +22,7 @@ export class QuestionsService {
       .map(res=>res.json());
   }
 
-  getExamFiles(): Observable<Question[]> {
+  getExamFiles(): Observable<ExamFiles[]> {
     var res: Response;
     var url = 'http://192.168.1.25:5000/sendef/';
     var url = 'http://52.57.79.92:5000/sendef/';
@@ -31,7 +31,7 @@ export class QuestionsService {
 
     console.log("Getting examfiles - getExamFiles().");
     return this.http.get(url)
-      .map(res=>res.json());
+      .map(res=><ExamFiles[]>res.json());
   }
 
 }

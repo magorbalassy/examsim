@@ -1,12 +1,17 @@
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MaterialModule, MdToolbarModule, MdButtonModule } from '@angular/material';
 import { MdMenuModule, MdSidenavModule, MdIconModule, MdCardModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PlayerComponent } from './player.component'
 import { ProgressBar } from './progressBar'
+import { SelectDialog } from './selectDialog';
+import { SelectDialogTable } from './selectDialogTable';
+import { QuestionsService } from './questions.service';
+
 //import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -22,8 +27,9 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent, PlayerComponent, ProgressBar,
+    AppComponent, PlayerComponent, ProgressBar, SelectDialog,SelectDialogTable
   ],
+  entryComponents: [SelectDialog],
   imports: [
 //    RouterModule.forRoot(
 //      appRoutes,
@@ -32,6 +38,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     MaterialModule,
     MdMenuModule,
@@ -41,7 +48,7 @@ import { AppComponent } from './app.component';
     MdCardModule,
     MdToolbarModule,
   ],
-  providers: [],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

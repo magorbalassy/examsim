@@ -57,3 +57,53 @@ md-toolbar-row {
   bottom: 10%;
   border-left: 1px solid white;
 }
+
+
+/* for the datatable from material.angular.io */
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 20px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-left: 32px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.highlight {
+  background: #E967BA;
+  /* green */
+}
+
+p:hover {
+  background-color: #FFFAF0;
+  color: #000;
+}
+
+
+/*next*/

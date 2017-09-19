@@ -4,7 +4,7 @@ export class Question {
   explanation : String;
   q_text : String;
   q_type : String;
-  answers : string[] ; 
+  answers : string[] ;
 };
 
 export class GivenAnswers {
@@ -14,4 +14,11 @@ export class GivenAnswers {
   constructor(question : Question) {
   }
 
+}
+
+export class ExamFiles {
+  examCode: string;
+  examFile: string;
+  questiasasons: string;
+  examFileDesc: string;
 }
