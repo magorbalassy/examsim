@@ -3,11 +3,11 @@ import {AfterViewInit, Component, Input, ChangeDetectorRef } from '@angular/core
 @Component({
   selector: 'progressbar',
   template: `
-          <md-progress-bar
+          <mat-progress-bar
             [color]="accent"
             [mode]="determinate"
             [value]="progress">
-          </md-progress-bar>
+          </mat-progress-bar>
             `,
   providers: [],
 })

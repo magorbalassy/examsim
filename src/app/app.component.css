@@ -107,18 +107,23 @@
   background-color: #5bc0de;
 }
 
-md-sidenav-container {
+.md-sidenav-container {
   margin: 0;
   height: auto;
   width: 100%;
 }
 
-md-ssidenav {
-  margin: 0;
+
+.md-sidenav {
+  margin: 2px;
   height: 100vh;
   width: auto;
 }
 
 div.spacer {
   width: 5px;
+}
+
+.title-center {
+  margin: 0 auto;
 }

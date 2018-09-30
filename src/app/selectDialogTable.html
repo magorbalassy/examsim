@@ -1,35 +1,35 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
-    <md-form-field floatPlaceholder="never">
-      <input mdInput #filter placeholder="Filter titles">
-    </md-form-field>
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter titles">
+    </mat-form-field>
   </div>
-  <md-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource">
     <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
-    <ng-container mdColumnDef="examCode">
-      <md-header-cell *mdHeaderCellDef> Exam code </md-header-cell>
-      <md-cell *mdCellDef="let row"> {{ row.examCode }} </md-cell>
+    <ng-container matColumnDef="examCode">
+      <mat-header-cell *matHeaderCellDef> Exam code </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.examCode }} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="Questions">
-      <md-header-cell *mdHeaderCellDef> Questions </md-header-cell>
-      <md-cell *mdCellDef="let row"> {{row.examQuestions}} </md-cell>
+    <ng-container matColumnDef="Questions">
+      <mat-header-cell *matHeaderCellDef> Questions </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.examQuestions}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="File">
-      <md-header-cell *mdHeaderCellDef> File </md-header-cell>
-      <md-cell *mdCellDef="let row"> {{row.examFile}} </md-cell>
+    <ng-container matColumnDef="File">
+      <mat-header-cell *matHeaderCellDef> File </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.examFile}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="Description">
-      <md-header-cell *mdHeaderCellDef> Description </md-header-cell>
-      <md-cell *mdCellDef="let row"> {{row.examFileDesc}} </md-cell>
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.examFileDesc}} </mat-cell>
     </ng-container>
 
-    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedExamFile == row.examFile}" (click)="highlight(row)">
-    </md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedExamFile == row.examFile}" (click)="highlight(row)">
+    </mat-row>
+  </mat-table>
 </div>

@@ -1,38 +1,39 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <span>
-      <button md-button (click)="sidenav.toggle()">
-        <md-icon>more_vert</md-icon>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>more_vert</mat-icon>
         <span>Menu</span>
   </button>
   </span>
-  <span>Yay, XSim !</span>
-  <span><md-icon>mood</md-icon></span>
-</md-toolbar>
+  <span class="title-center">Yay, XSim !</span>
+  <span><mat-icon>mood</mat-icon></span>
+</mat-toolbar>
 
-<md-sidenav-container #sideMenu>
-  <md-sidenav #sidenav mode="side">
-    <md-nav-list>
-      <a md-list-item>
-        <md-icon>visibility</md-icon>
+<mat-sidenav-container class="md-sidenav" #sideMenu>
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <a mat-list-item>
+        <mat-icon>visibility</mat-icon>
         <div class="spacer"></div>
-        <span (click)="openDialog()">Select exam</span>
+        <span (click)="openDialog()" matTooltipPosition="after" matTooltip="Select exam">
+        Select exam</span>
       </a>
-      <a md-list-item>
-        <md-icon>file_upload</md-icon>
+      <a mat-list-item>
+        <mat-icon>file_upload</mat-icon>
         <div class="spacer"></div>
-        <span mdTooltipPosition="after" mdTooltip="Upload a PDF file of your own,
+        <span matTooltipPosition="after" matTooltip="Upload a PDF file of your own,
         containing questions and answers in an accepted
         format">Upload file</span>
       </a>
-      <a md-list-item>
-        <md-icon>account_box</md-icon>
+      <a mat-list-item>
+        <mat-icon>account_box</mat-icon>
         <div class="spacer"></div>
-        <span mdTooltipPosition="after" mdTooltip="Log in with your username to
+        <span matTooltipPosition="after" matTooltip="Log in with your username to
         track your progress">Log in</span>
       </a>
-    </md-nav-list>
-  </md-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
   <div class="my-content">
     <player></player>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>

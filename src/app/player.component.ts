@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 
 import { QuestionsService } from './questions.service';
-import { MaterialModule } from '@angular/material';
+import { MatRippleModule } from '@angular/material';
 import { ProgressBar } from './progressBar'
 
 

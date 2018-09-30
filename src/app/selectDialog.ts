@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { QuestionsService } from './questions.service'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -13,8 +13,8 @@ import { SelectDialogTable } from './selectDialogTable';
 export class SelectDialog {
 
   constructor(
-    public dialogRef: MdDialogRef<SelectDialog>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<SelectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {
     this.dialogRef.close();

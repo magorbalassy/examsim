@@ -1,7 +1,7 @@
 import { Component, Inject, ViewChild } from '@angular/core';
 import { PlayerComponent } from './player.component';
 import { SelectDialog } from './selectDialog';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'SimX';
   selectedExamFile : string;
 
-  constructor(public selectDialog: MdDialog) {}
+  constructor(public selectDialog: MatDialog) {}
 
   openDialog() {
     this.sidenav.toggle();
